@@ -1,3 +1,18 @@
 body{
     background: lemonchiffon;
 }
+
+.logo{
+    border-style: solid;
+    border-color: black;
+    width: 300px;
+    display: flex;
+    font-family: 'Roboto Mono', monospace;
+}
+
+img{
+    max-width: 50px;
+    width: auto;
+    margin: 5px;
+
+}
