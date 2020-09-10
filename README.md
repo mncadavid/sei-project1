@@ -9,5 +9,17 @@ Hangman is a new spin on an old classic.  The basic premise of the game is for u
 Wireframes:
 
 MVP:
+The minimum viable product must:
+1. Properly score the game of hangman
+2. Allow for user input of a word
+3. Allow a user to select a word category from a minimum of 4 categories
+4. Not allow a user to repeat their letter selection in a round
+5. Progressively display the robot as incorrect letters are selected
+6. Display correct letters in the word when they are selected
+7. Display a winning/losing message
 
 Post-MVP:
+Add animations or transitions to letters and the robot
+Create a thematic layout/background
+Add up to 10 word categories
+Add sounds to the page
