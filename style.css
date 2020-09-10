@@ -1,5 +1,9 @@
 body{
     background: lemonchiffon;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
 }
 
 .logo{
@@ -8,6 +12,7 @@ body{
     width: 300px;
     display: flex;
     font-family: 'Roboto Mono', monospace;
+    margin: 8px;
 }
 
 img{
@@ -15,4 +20,13 @@ img{
     width: auto;
     margin: 5px;
 
+}
+
+footer{
+    height: 300px;
+    background-color: grey;
+    flex-shrink: 0;
+}
+.gameboard{
+    flex: 1;
 }
