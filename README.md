@@ -9,6 +9,10 @@ Hangman is a new spin on an old classic.  The basic premise of the game is for u
 
 Wireframes:
 
+https://wireframe.cc/0LvKcI
+
+https://i.imgur.com/KeHI5PA.jpg
+
 MVP:
 
 The minimum viable product must:
