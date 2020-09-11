@@ -2,6 +2,12 @@ console.log("Works");
 const word = document.querySelector(".word");
 const keys = document.querySelectorAll(".key");
 const buttons = document.querySelectorAll(".button");
+const head = document.querySelector(".head");
+const leftArm = document.querySelector(".leftarm");
+const rightArm = document.querySelector(".rightarm");
+const leftLeg = document.querySelector(".leftleg");
+const rightLeg = document.querySelector(".rightleg");
+const torso = document.querySelector(".torso");
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
@@ -16,9 +22,11 @@ let inputWord = "TEST";
 
 let lettersGuessed = 0;
 let wordLength = 0;
+let incorrectLetters = 0;
 
 function populateWord(event){
     lettersGuessed = 0;
+    incorrectLetters = 0;
     while(word.firstChild){
         word.removeChild(word.firstChild);
     }
@@ -63,7 +71,10 @@ function checkLetter(event){
             checkForWinner();
         }
     })
-    if(match === false){ buildRobot();}
+    if(match === false){ 
+        incorrectLetters++;
+        buildRobot();
+    }
 }
 
 function checkForWinner(){
@@ -73,6 +84,25 @@ function checkForWinner(){
 }
 
 function buildRobot(){
+    if(incorrectLetters === 1){
+        head.style.display = "initial";
+    }
+    else if(incorrectLetters === 2){
+        torso.style.display = "initial";
+    }
+    else if(incorrectLetters === 3){
+        leftArm.style.display = "initial";
+    }
+    else if(incorrectLetters === 4){
+        rightArm.style.display = "initial";
+    }
+    else if(incorrectLetters === 5){
+        leftLeg.style.display = "initial";
+    }
+    else if(incorrectLetters === 6){
+        rightLeg.style.display = "initial";
+        console.log("You Lose");
+    }
     console.log("Robot");
 }
 
