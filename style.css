@@ -110,7 +110,8 @@ footer{
 #label1{
 }
 #label2{
-    text-justify: ;
+    height: 100%;
+    vertical-align: bottom;
 }
 
 .buttons button{
@@ -137,6 +138,8 @@ footer{
     grid-row: 1 / span 1;
     grid-column: 5/ span 2;
     height: 100px;
+    align-items: center;
+    margin: 0 auto;
 }
 input{
     margin: 25px auto;
@@ -145,7 +148,7 @@ input{
 }
 .go{
     border-radius: 50%;
-    height: 30px;
+    height: 40px;
 }
 .letter{
     border-bottom: solid black;
