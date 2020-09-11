@@ -10,6 +10,8 @@ const rightLeg = document.querySelector(".rightleg");
 const torso = document.querySelector(".torso");
 const go = document.querySelector(".go");
 const input = document.querySelector("input");
+const iframe = document.querySelector('iframe');
+const h2 = document.querySelector('h2');
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
@@ -109,6 +111,8 @@ function buildRobot(){
     }
     else if(incorrectLetters === 6){
         rightLeg.style.display = "initial";
+        iframe.style.display = "initial";
+        h2.style.display = "initial";
         console.log("You Lose");
     }
     console.log("Robot");
