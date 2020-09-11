@@ -34,25 +34,26 @@ function populateWord(event){
         word.removeChild(word.firstChild);
     }
     let clickedButton = event.target.innerText;
-    if(clickedButton === "Noisy Words"){
+    if(clickedButton === "Noisy"){
         inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
         console.log(inputWord);
     }
-    else if(clickedButton === "Color Words"){
+    else if(clickedButton === "Colors"){
         inputWord = (colorWords[Math.floor(Math.random()*colorWords.length)]).toUpperCase();
         console.log(inputWord);
     }
-    else if(clickedButton === "Computer Words"){
+    else if(clickedButton === "Computers"){
         inputWord = (computerWords[Math.floor(Math.random()*computerWords.length)]).toUpperCase();
         console.log(inputWord);
     }
-    else if(clickedButton === "Robot Words"){
+    else if(clickedButton === "Robots"){
         inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
         console.log(inputWord);
     }
     else if(clickedButton === "GO!"){
         inputWord = (input.value).toUpperCase();
         console.log(inputWord);
+        input.value ='';
     }
     for(let i =0; i<inputWord.length; i++){
         newLetter = document.createElement('div');
@@ -73,7 +74,7 @@ function checkLetter(event){
             match = true;
             const revealLetters = word.querySelectorAll(`.${letter}`);
             revealLetters.forEach(div => {
-                div.style.color = "black";
+                div.style.color = "limegreen";
             })
             checkForWinner();
         }
