@@ -36,6 +36,7 @@ footer{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .word{
@@ -43,6 +44,8 @@ footer{
     grid-row: 1;
     grid-column: 1;
     display: flex;
+    justify-content: center;
+    font-size: x-large;
 }
 .robot{
     background: black;
@@ -52,6 +55,8 @@ footer{
 
 .letter{
     color: white;
+    margin: 10px;
+    height: 40px;
 }
 
 .row{
@@ -122,4 +127,8 @@ input{
 .go{
     border-radius: 50%;
     height: 30px;
+}
+.letter{
+    border-bottom: solid black;
+    margin: auto;
 }
