@@ -109,3 +109,17 @@ footer{
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
 }
+.input{
+    grid-row: 1 / span 1;
+    grid-column: 5/ span 2;
+    height: 100px;
+}
+input{
+    margin: 25px auto;
+    height: 50px;
+    border-radius: 10px;
+}
+.go{
+    border-radius: 50%;
+    height: 30px;
+}
