@@ -1,15 +1,25 @@
 console.log("Works");
 const word = document.querySelector(".word");
 const keys = document.querySelectorAll(".key");
+const buttons = document.querySelectorAll(".button");
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
 })
 
+buttons.forEach(button => {
+    button.addEventListener("click", populateWord);
+})
+
 
 let inputWord = "TEST";
 
-function populateWord(){
+function populateWord(event){
+    let clickedButton = event.target.innerText;
+    if(clickedButton === "Noisy Words"){
+        inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
+        console.log(inputWord);
+    }
     for(let i =0; i<inputWord.length; i++){
         newLetter = document.createElement('div');
         newLetter.classList.add("letter");
@@ -38,7 +48,6 @@ function buildRobot(){
     console.log("Robot");
 }
 
-populateWord();
 const noisyWords = ["chuckle",
     "slurp",
     "whoosh",
