@@ -27,6 +27,18 @@ function populateWord(event){
         inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
         console.log(inputWord);
     }
+    else if(clickedButton === "Color Words"){
+        inputWord = (colorWords[Math.floor(Math.random()*colorWords.length)]).toUpperCase();
+        console.log(inputWord);
+    }
+    else if(clickedButton === "Computer Words"){
+        inputWord = (computerWords[Math.floor(Math.random()*computerWords.length)]).toUpperCase();
+        console.log(inputWord);
+    }
+    else if(clickedButton === "Robot Words"){
+        inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
+        console.log(inputWord);
+    }
     for(let i =0; i<inputWord.length; i++){
         newLetter = document.createElement('div');
         newLetter.classList.add("letter");
@@ -64,6 +76,7 @@ function buildRobot(){
     console.log("Robot");
 }
 
+//https://jimpix.co.uk/words/word-generator.asp#results
 const noisyWords = ["chuckle",
     "slurp",
     "whoosh",
@@ -114,3 +127,36 @@ const noisyWords = ["chuckle",
     'baa',
     'kerching',
     'cluck'];
+
+    const robotWords = [
+        'robot',
+        'gear',
+        'cyborg',
+        'automation',
+        'android',
+        'machine',
+        'electromechanics',
+        'cyber',
+        'gadget',
+        'bionic'
+    ];
+
+    const computerWords = [
+        'monitor',
+        'mouse',
+        'processor',
+        'memory',
+        'keyboard',
+        'RAM',
+        'ROM',
+        'webcam',
+        'screen'
+    ]
+
+    const colorWords = [
+        'grey',
+        'blue',
+        'purple',
+        'crimson',
+        'white'
+    ]
