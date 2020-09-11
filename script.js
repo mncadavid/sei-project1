@@ -20,16 +20,22 @@ function populateWord(){
 }
 
 function checkLetter(event){
+    let match = false;
     let clickedLetter = event.target.innerText;
     inputWord.split("").forEach(letter => {
         if(clickedLetter === letter){
+            match = true;
             const revealLetters = word.querySelectorAll(`.${letter}`);
-            console.log(revealLetters);
             revealLetters.forEach(div => {
                 div.style.color = "black";
             })
         }
     })
+    if(match === false){ buildRobot();}
+}
+
+function buildRobot(){
+    console.log("Robot");
 }
 
 populateWord();
