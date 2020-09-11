@@ -8,6 +8,8 @@ const rightArm = document.querySelector(".rightarm");
 const leftLeg = document.querySelector(".leftleg");
 const rightLeg = document.querySelector(".rightleg");
 const torso = document.querySelector(".torso");
+const go = document.querySelector(".go");
+const input = document.querySelector("input");
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
@@ -17,6 +19,7 @@ buttons.forEach(button => {
     button.addEventListener("click", populateWord);
 })
 
+go.addEventListener("click", populateWord);
 
 let inputWord = "TEST";
 
@@ -45,6 +48,10 @@ function populateWord(event){
     }
     else if(clickedButton === "Robot Words"){
         inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
+        console.log(inputWord);
+    }
+    else if(clickedButton === "GO!"){
+        inputWord = (input.value).toUpperCase();
         console.log(inputWord);
     }
     for(let i =0; i<inputWord.length; i++){
