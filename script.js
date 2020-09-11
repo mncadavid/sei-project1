@@ -14,7 +14,14 @@ buttons.forEach(button => {
 
 let inputWord = "TEST";
 
+let lettersGuessed = 0;
+let wordLength = 0;
+
 function populateWord(event){
+    lettersGuessed = 0;
+    while(word.firstChild){
+        word.removeChild(word.firstChild);
+    }
     let clickedButton = event.target.innerText;
     if(clickedButton === "Noisy Words"){
         inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
@@ -27,6 +34,7 @@ function populateWord(event){
         newLetter.innerText = inputWord[i];
         word.appendChild(newLetter);
     }
+    wordLength = inputWord.length;
 }
 
 function checkLetter(event){
@@ -34,14 +42,22 @@ function checkLetter(event){
     let clickedLetter = event.target.innerText;
     inputWord.split("").forEach(letter => {
         if(clickedLetter === letter){
+            lettersGuessed++;
             match = true;
             const revealLetters = word.querySelectorAll(`.${letter}`);
             revealLetters.forEach(div => {
                 div.style.color = "black";
             })
+            checkForWinner();
         }
     })
     if(match === false){ buildRobot();}
+}
+
+function checkForWinner(){
+    if(lettersGuessed >= wordLength){
+        console.log("You won!");
+    }
 }
 
 function buildRobot(){
