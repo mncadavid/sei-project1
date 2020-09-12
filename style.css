@@ -221,7 +221,7 @@ input{
 .head{
     grid-row: 1 / span 1;
     grid-column: 2 / span 2;
-    background-color: white;
+    background-color: grey;
     margin: 10px;
     display: none;
     max-width: 150px;
@@ -229,7 +229,7 @@ input{
 .torso{
     grid-row: 2 / span 2;
     grid-column: 2 / span 2;
-    background-color: white;
+    background-color: grey;
     display: none;
     max-width: 170px;
 }
@@ -252,7 +252,7 @@ input{
 .leftleg{
     grid-row: 4 / span 2;
     grid-column: 2 / span 1;
-    background-color: white;
+    background-color: grey;
     margin: 10px;
     display: none;
     max-width: 60px;
@@ -261,7 +261,7 @@ input{
     grid-row: 4 / span 2;
     grid-column: 3 / span 1;
     margin: 10px;
-    background-color: white;
+    background-color: grey;
     display: none;
     max-width: 60px;
 }
