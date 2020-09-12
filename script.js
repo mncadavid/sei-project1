@@ -23,13 +23,16 @@ buttons.forEach(button => {
 
 go.addEventListener("click", populateWord);
 
-let inputWord = "TEST";
+let inputWord = "";
 
 let lettersGuessed = 0;
 let wordLength = 0;
 let incorrectLetters = 0;
+let loser = 0;
 
 function populateWord(event){
+    clearInterval(loser);
+    h2.style.display = "none";
     lettersGuessed = 0;
     incorrectLetters = 0;
     while(word.firstChild){
@@ -90,6 +93,7 @@ function checkLetter(event){
 function checkForWinner(){
     if(lettersGuessed >= wordLength){
         console.log("You won!");
+        iframe.style.display = "initial";
     }
 }
 
@@ -111,8 +115,13 @@ function buildRobot(){
     }
     else if(incorrectLetters === 6){
         rightLeg.style.display = "initial";
-        iframe.style.display = "initial";
-        h2.style.display = "initial";
+            loser = setInterval(function(){
+                if(h2.style.display === "none"){
+                h2.style.display = "initial";
+                }
+                else {
+                    h2.style.display = "none";
+                }}, 500);
         console.log("You Lose");
     }
     console.log("Robot");
