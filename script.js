@@ -9,8 +9,9 @@ const rightLeg = document.querySelector(".rightleg");
 const torso = document.querySelector(".torso");
 const go = document.querySelector(".go");
 const input = document.querySelector("input");
-const iframe = document.querySelector('iframe');
+const iframe = document.querySelector('.iframe');
 const h3 = document.querySelector('h3');
+const body = document.querySelector('body');
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
@@ -42,6 +43,7 @@ function populateWord(event){
     leftArm.style.display = "none";
     rightLeg.style.display = "none";
     leftLeg.style.display = "none";
+    iframe.style.display = "none";
     while(word.firstChild){
         word.removeChild(word.firstChild);
     }
@@ -103,7 +105,7 @@ function checkLetter(event){
 function checkForWinner(){
     if(lettersGuessed >= wordLength){
         console.log("You won!");
-        iframe.style.display = "initial";
+         iframe.style.display = "initial";
     }
 }
 
