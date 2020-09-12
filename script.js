@@ -1,4 +1,3 @@
-console.log("Works");
 const word = document.querySelector(".word");
 const keys = document.querySelectorAll(".key");
 const buttons = document.querySelectorAll(".button");
@@ -11,7 +10,7 @@ const torso = document.querySelector(".torso");
 const go = document.querySelector(".go");
 const input = document.querySelector("input");
 const iframe = document.querySelector('iframe');
-const h2 = document.querySelector('h2');
+const h3 = document.querySelector('h3');
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
@@ -29,12 +28,20 @@ let lettersGuessed = 0;
 let wordLength = 0;
 let incorrectLetters = 0;
 let loser = 0;
+let lettersGuessedArr = [];
 
 function populateWord(event){
     clearInterval(loser);
-    h2.style.display = "none";
+    h3.style.display = "none";
     lettersGuessed = 0;
     incorrectLetters = 0;
+    lettersGuessedArr = [];
+    head.style.display = "none";
+    torso.style.display = "none";
+    rightArm.style.display = "none";
+    leftArm.style.display = "none";
+    rightLeg.style.display = "none";
+    leftLeg.style.display = "none";
     while(word.firstChild){
         word.removeChild(word.firstChild);
     }
@@ -73,20 +80,23 @@ function populateWord(event){
 function checkLetter(event){
     let match = false;
     let clickedLetter = event.target.innerText;
-    inputWord.split("").forEach(letter => {
-        if(clickedLetter === letter){
-            lettersGuessed++;
-            match = true;
-            const revealLetters = word.querySelectorAll(`.${letter}`);
-            revealLetters.forEach(div => {
-                div.style.color = "limegreen";
-            })
-            checkForWinner();
+    if(!lettersGuessedArr.includes(clickedLetter)){
+        lettersGuessedArr.push(clickedLetter);
+        inputWord.split("").forEach(letter => {
+            if(clickedLetter === letter){
+                lettersGuessed++;
+                match = true;
+                const revealLetters = word.querySelectorAll(`.${letter}`);
+                revealLetters.forEach(div => {
+                    div.style.color = "rgb(100,205,50)";
+                })
+                checkForWinner();
+            }
+        })
+        if(match === false){ 
+            incorrectLetters++;
+            buildRobot();
         }
-    })
-    if(match === false){ 
-        incorrectLetters++;
-        buildRobot();
     }
 }
 
@@ -116,15 +126,13 @@ function buildRobot(){
     else if(incorrectLetters === 6){
         rightLeg.style.display = "initial";
             loser = setInterval(function(){
-                if(h2.style.display === "none"){
-                h2.style.display = "initial";
+                if(h3.style.display === "none"){
+                h3.style.display = "initial";
                 }
                 else {
-                    h2.style.display = "none";
+                    h3.style.display = "none";
                 }}, 500);
-        console.log("You Lose");
     }
-    console.log("Robot");
 }
 
 //https://jimpix.co.uk/words/word-generator.asp#results
