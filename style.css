@@ -177,7 +177,6 @@ footer{
     grid-row: 1 / span 1;
     grid-column: 5/ span 2;
     height: 100px;
-    align-items: center;
     margin: 0 auto;
 }
 input{
