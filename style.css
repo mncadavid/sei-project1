@@ -135,24 +135,13 @@ footer{
     align-items: center;
     flex-wrap: wrap;
 }
-h3{
-    display: none;
-    position: absolute;
-    top: 32%;
-    left: 42%;
-    z-index: 15;
-    color: white;
-    font-family: 'Roboto Mono', monospace;
-    font-size: xx-large;
+.keyboard{
+    grid-row: 1 / span 3;
+    grid-column: 1 / span 3;
+    margin: 0 auto;
 }
 .row{
     display: flex;
-}
-.emptyKey{
-    width: 40px;
-    height: 40px;
-    margin: 3px;
-    box-sizing: border-box;
 }
 .key{
     width: 50px;
@@ -173,11 +162,45 @@ h3{
 .keySpacer{
     width: 25px;
 }
-.keyboard{
+.emptyKey{
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    box-sizing: border-box;
+}
+.wordSelection{
     grid-row: 1 / span 3;
-    grid-column: 1 / span 3;
+    grid-column: 5 / span 2;
     margin: 0 auto;
-
+}
+.input{
+    grid-row: 1 / span 1;
+    grid-column: 5/ span 2;
+    height: 100px;
+    align-items: center;
+    margin: 0 auto;
+}
+input{
+    margin: 25px auto;
+    height: 50px;
+    border-radius: 10px;
+    background-color: black;
+    color: limegreen;
+    font-family: 'Roboto Mono', monospace;
+}
+.go{
+    border-radius: 50%;
+    height: 40px;
+    border: solid black;
+    margin: 3px;
+    color: white;
+    background-color:#333;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    box-sizing: border-box;
+    border-bottom-color: #555;
+    font-family: 'Arial', monospace;
+    padding: 10px;
+    font-size: larger;
 }
 .buttons{
     grid-row: 2 / span 2;
@@ -218,40 +241,16 @@ h3{
     grid-row: 2 / span 1;
     grid-column: 2 / span 1;
 }
-.input{
-    grid-row: 1 / span 1;
-    grid-column: 5/ span 2;
-    height: 100px;
-    align-items: center;
-    margin: 0 auto;
-}
-input{
-    margin: 25px auto;
-    height: 50px;
-    border-radius: 10px;
-    background-color: black;
-    color: limegreen;
-    font-family: 'Roboto Mono', monospace;
-}
-.go{
-    border-radius: 50%;
-    height: 40px;
-    border: solid black;
-    margin: 3px;
+h3{
+    display: none;
+    position: absolute;
+    top: 32%;
+    left: 42%;
+    z-index: 15;
     color: white;
-    background-color:#333;
-    box-shadow: 0 0.2em 0 0.05em #222;
-    box-sizing: border-box;
-    border-bottom-color: #555;
-    font-family: 'Arial', monospace;
-    padding: 10px;
-    font-size: larger;
+    font-family: 'Roboto Mono', monospace;
+    font-size: xx-large;
 }
 .jump{
     display: none;
-}
-.wordSelection{
-    grid-row: 1 / span 3;
-    grid-column: 5 / span 2;
-    margin: 0 auto;
 }
