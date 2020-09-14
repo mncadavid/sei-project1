@@ -272,7 +272,8 @@ input{
     grid-column: 4 / span 1;
     font-family: "Roboto Mono", monospace;
     color: rgb(100,205,50);
-    font-size: larger;
+    font-size: xx-large;
+    text-align: right;
 }
 
 .jump{
