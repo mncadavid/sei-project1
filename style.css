@@ -267,3 +267,7 @@ input{
     display: none;
     max-width: 60px;
 }
+
+.jump{
+    display: none;
+}

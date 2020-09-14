@@ -12,6 +12,7 @@ const input = document.querySelector("input");
 const iframe = document.querySelector('.iframe');
 const h3 = document.querySelector('h3');
 const body = document.querySelector('body');
+const jump = document.querySelector('.jump');
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
@@ -32,6 +33,7 @@ let lettersGuessedArr = [];
 let gameStatus = '';
 
 function populateWord(event){
+    jump.pause();
     clearInterval(loser);
     h3.style.display = "none";
     lettersGuessed = 0;
@@ -110,6 +112,7 @@ function checkForWinner(){
     if(lettersGuessed >= wordLength){
          iframe.style.display = "initial";
          gameStatus = 'won';
+         jump.play();
     }
 }
 
