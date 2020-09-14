@@ -267,6 +267,13 @@ input{
     display: none;
     max-width: 60px;
 }
+.timer{
+    grid-row: 5 / span 1;
+    grid-column: 4 / span 1;
+    font-family: "Roboto Mono", monospace;
+    color: rgb(100,205,50);
+    font-size: larger;
+}
 
 .jump{
     display: none;

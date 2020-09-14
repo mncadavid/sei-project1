@@ -13,6 +13,7 @@ const iframe = document.querySelector('.iframe');
 const h3 = document.querySelector('h3');
 const body = document.querySelector('body');
 const jump = document.querySelector('.jump');
+const timer = document.querySelector('.timer');
 
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
@@ -31,8 +32,10 @@ let incorrectLetters = 0;
 let loser = 0;
 let lettersGuessedArr = [];
 let gameStatus = '';
+let time = 45;
 
 function populateWord(event){
+    timerFunction();
     jump.pause();
     clearInterval(loser);
     h3.style.display = "none";
@@ -112,6 +115,7 @@ function checkForWinner(){
     if(lettersGuessed >= wordLength){
          iframe.style.display = "initial";
          gameStatus = 'won';
+         clearInterval(timerOn);
          jump.play();
     }
 }
@@ -135,15 +139,33 @@ function buildRobot(){
             break;
         case 6:
             rightLeg.style.display = "initial";
-            gameStatus = 'lost';
-            loser = setInterval(function(){
-                if(h3.style.display === "none"){
-                h3.style.display = "initial";
-                }
-                else {
-                    h3.style.display = "none";
-                }}, 500);
+            gameOver();
     }
+}
+
+function timerFunction(){
+    time = 45;
+    timer.innerText = "45";
+    timerOn = setInterval(() => {
+        time--;
+        timer.innerText = time;
+        if(time === 0){
+            gameOver();
+        }
+    }, 1000);
+}
+
+
+function gameOver(){
+    gameStatus = 'lost';
+    clearInterval(timerOn);
+    loser = setInterval(function(){
+        if(h3.style.display === "none"){
+        h3.style.display = "initial";
+        }
+        else {
+            h3.style.display = "none";
+        }}, 500);
 }
 //https://jimpix.co.uk/words/word-generator.asp#results
 const noisyWords = ["chuckle",
