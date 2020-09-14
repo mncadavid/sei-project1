@@ -108,6 +108,7 @@ h3{
     border-bottom-color: #555;
     font-family: 'Arial', monospace;
     padding: 10px;
+    font-size:large;
 }
 .keySpacer{
     width: 25px;
@@ -127,6 +128,7 @@ h3{
     grid-template-rows: 1fr 1fr;
     margin: 0 auto;
     border-radius: 10px;
+    font-size: larger;
 }
 .mode{
     grid-row: 1 / span 3;
@@ -159,6 +161,7 @@ h3{
     border-bottom-color: #555;
     font-family: 'Arial', monospace;
     padding: 10px;
+    font-size: larger;
 }
 .noisyWords{
     grid-row: 1 / span 1;
@@ -204,6 +207,7 @@ input{
     border-bottom-color: #555;
     font-family: 'Arial', monospace;
     padding: 10px;
+    font-size: larger;
 }
 .letter{
     border-bottom: solid limegreen;
@@ -275,7 +279,6 @@ input{
     font-size: xx-large;
     text-align: right;
 }
-
 .jump{
     display: none;
 }
