@@ -111,23 +111,24 @@ function checkForWinner(){
 }
 
 function buildRobot(){
-    if(incorrectLetters === 1){
-        head.style.display = "initial";
-    }
-    else if(incorrectLetters === 2){
-        torso.style.display = "initial";
-    }
-    else if(incorrectLetters === 3){
-        leftArm.style.display = "initial";
-    }
-    else if(incorrectLetters === 4){
-        rightArm.style.display = "initial";
-    }
-    else if(incorrectLetters === 5){
-        leftLeg.style.display = "initial";
-    }
-    else if(incorrectLetters === 6){
-        rightLeg.style.display = "initial";
+    switch (incorrectLetters){
+        case 1:
+            head.style.display = "initial";
+            break;
+        case 2:
+            torso.style.display = "initial";
+            break;
+        case 3:
+            leftArm.style.display = "initial";
+            break;
+        case 4:
+            rightArm.style.display = "initial";
+            break;
+        case 5:
+            leftLeg.style.display = "initial";
+            break;
+        case 6:
+            rightLeg.style.display = "initial";
             loser = setInterval(function(){
                 if(h3.style.display === "none"){
                 h3.style.display = "initial";
@@ -137,7 +138,6 @@ function buildRobot(){
                 }}, 500);
     }
 }
-
 //https://jimpix.co.uk/words/word-generator.asp#results
 const noisyWords = ["chuckle",
     "slurp",
@@ -213,7 +213,7 @@ const noisyWords = ["chuckle",
         'ROM',
         'webcam',
         'screen'
-    ]
+    ];
 
     const colorWords = [
         'grey',
@@ -221,4 +221,4 @@ const noisyWords = ["chuckle",
         'purple',
         'crimson',
         'white'
-    ]
+    ];
