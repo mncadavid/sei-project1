@@ -35,6 +35,9 @@ let gameStatus = '';
 let time = 45;
 
 function populateWord(event){
+    if(word.firstChild !== null){
+        clearInterval(timerOn);
+    }
     timerFunction();
     jump.pause();
     clearInterval(loser);
