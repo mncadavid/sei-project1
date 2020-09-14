@@ -24,7 +24,6 @@ buttons.forEach(button => {
 go.addEventListener("click", populateWord);
 
 let inputWord = "";
-
 let lettersGuessed = 0;
 let wordLength = 0;
 let incorrectLetters = 0;
@@ -105,7 +104,6 @@ function checkLetter(event){
 
 function checkForWinner(){
     if(lettersGuessed >= wordLength){
-        console.log("You won!");
          iframe.style.display = "initial";
     }
 }
@@ -220,5 +218,37 @@ const noisyWords = ["chuckle",
         'blue',
         'purple',
         'crimson',
-        'white'
+        'white',
+        'green',
+        'coral',
+        'teal',
+        'turquoise',
+        'magenta',
+        'salmon',
+        'ivory',
+        'lavender',
+        'orchid',
+        'silver',
+        'indigo',
+        'fuchsia',
+        'goldenrod',
+        'violet',
+        'amethyst',
+        'plum',
+        'orange',
+        'yellow',
+        'black',
+        'gold',
+        'aquamarine',
+        'maroon',
+        'beige',
+        'blush',
+        'chartreuse',
+        'khaki',
+        'cyan',
+        'rose',
+        'honeydew',
+        'brown',
+        'sienna',
+        'olive'
     ];
