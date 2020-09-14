@@ -48,26 +48,27 @@ function populateWord(event){
         word.removeChild(word.firstChild);
     }
     let clickedButton = event.target.innerText;
-    if(clickedButton === "Noisy"){
+    switch (clickedButton){
+    case "Noisy":
         inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
-        console.log(inputWord);
-    }
-    else if(clickedButton === "Colors"){
+        break;
+    
+    case "Colors":
         inputWord = (colorWords[Math.floor(Math.random()*colorWords.length)]).toUpperCase();
-        console.log(inputWord);
-    }
-    else if(clickedButton === "Computers"){
+        break;
+    
+    case "Computers":
         inputWord = (computerWords[Math.floor(Math.random()*computerWords.length)]).toUpperCase();
-        console.log(inputWord);
-    }
-    else if(clickedButton === "Robots"){
+        break;
+    
+    case "Robots":
         inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
-        console.log(inputWord);
-    }
-    else if(clickedButton === "GO!"){
+        break;
+    
+    case"GO!":
         inputWord = (input.value).toUpperCase();
-        console.log(inputWord);
         input.value ='';
+        break;
     }
     for(let i =0; i<inputWord.length; i++){
         newLetter = document.createElement('div');
