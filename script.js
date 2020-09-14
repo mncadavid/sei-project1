@@ -29,6 +29,7 @@ let wordLength = 0;
 let incorrectLetters = 0;
 let loser = 0;
 let lettersGuessedArr = [];
+let gameStatus = '';
 
 function populateWord(event){
     clearInterval(loser);
@@ -43,6 +44,7 @@ function populateWord(event){
     rightLeg.style.display = "none";
     leftLeg.style.display = "none";
     iframe.style.display = "none";
+    gameStatus = '';
     while(word.firstChild){
         word.removeChild(word.firstChild);
     }
@@ -80,24 +82,26 @@ function populateWord(event){
 }
 
 function checkLetter(event){
-    let match = false;
-    let clickedLetter = event.target.innerText;
-    if(!lettersGuessedArr.includes(clickedLetter)){
-        lettersGuessedArr.push(clickedLetter);
-        inputWord.split("").forEach(letter => {
-            if(clickedLetter === letter){
-                lettersGuessed++;
-                match = true;
-                const revealLetters = word.querySelectorAll(`.${letter}`);
-                revealLetters.forEach(div => {
-                    div.style.color = "rgb(100,205,50)";
-                })
-                checkForWinner();
+    if(gameStatus === ''){
+        let match = false;
+        let clickedLetter = event.target.innerText;
+        if(!lettersGuessedArr.includes(clickedLetter)){
+            lettersGuessedArr.push(clickedLetter);
+            inputWord.split("").forEach(letter => {
+                if(clickedLetter === letter){
+                    lettersGuessed++;
+                    match = true;
+                    const revealLetters = word.querySelectorAll(`.${letter}`);
+                    revealLetters.forEach(div => {
+                        div.style.color = "rgb(100,205,50)";
+                    })
+                    checkForWinner();
+                }
+            })
+            if(match === false){ 
+                incorrectLetters++;
+                buildRobot();
             }
-        })
-        if(match === false){ 
-            incorrectLetters++;
-            buildRobot();
         }
     }
 }
@@ -105,6 +109,7 @@ function checkLetter(event){
 function checkForWinner(){
     if(lettersGuessed >= wordLength){
          iframe.style.display = "initial";
+         gameStatus = 'won';
     }
 }
 
@@ -127,6 +132,7 @@ function buildRobot(){
             break;
         case 6:
             rightLeg.style.display = "initial";
+            gameStatus = 'lost';
             loser = setInterval(function(){
                 if(h3.style.display === "none"){
                 h3.style.display = "initial";
