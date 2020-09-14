@@ -35,6 +35,36 @@ let gameStatus = '';
 let time = 45;
 
 function populateWord(event){
+    input.style.border = "initial";
+    let clickedButton = event.target.innerText;
+    switch (clickedButton){
+    case "Noisy":
+        inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
+        break;
+    
+    case "Colors":
+        inputWord = (colorWords[Math.floor(Math.random()*colorWords.length)]).toUpperCase();
+        break;
+    
+    case "Computers":
+        inputWord = (computerWords[Math.floor(Math.random()*computerWords.length)]).toUpperCase();
+        break;
+    
+    case "Robots":
+        inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
+        break;
+    
+    case"GO!":
+        if(input.value !== ''){
+            inputWord = (input.value).toUpperCase();
+            input.value ='';
+        }
+        else{
+            input.style.border = "solid red";
+            return;
+        }
+        break;
+    }
     if(word.firstChild !== null){
         clearInterval(timerOn);
     }
@@ -55,29 +85,6 @@ function populateWord(event){
     gameStatus = '';
     while(word.firstChild){
         word.removeChild(word.firstChild);
-    }
-    let clickedButton = event.target.innerText;
-    switch (clickedButton){
-    case "Noisy":
-        inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
-        break;
-    
-    case "Colors":
-        inputWord = (colorWords[Math.floor(Math.random()*colorWords.length)]).toUpperCase();
-        break;
-    
-    case "Computers":
-        inputWord = (computerWords[Math.floor(Math.random()*computerWords.length)]).toUpperCase();
-        break;
-    
-    case "Robots":
-        inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
-        break;
-    
-    case"GO!":
-        inputWord = (input.value).toUpperCase();
-        input.value ='';
-        break;
     }
     for(let i =0; i<inputWord.length; i++){
         newLetter = document.createElement('div');
