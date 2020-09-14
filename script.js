@@ -126,6 +126,9 @@ function checkForWinner(){
          iframe.style.display = "initial";
          gameStatus = 'won';
          clearInterval(timerOn);
+         while(word.firstChild){
+            word.removeChild(word.firstChild);
+        }
          jump.play();
     }
 }
