@@ -13,26 +13,23 @@ header{
     width: 100%;
 }
 .logo{
-    border-style: solid;
-    border-color: white;
+    border: solid white;
     width: 300px;
     display: flex;
     margin: 8px;
 }
-
 img{
     max-width: 50px;
     width: auto;
     margin: 5px;
 }
-
-footer{
-    min-height: 300px;
-    background-color: grey;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+.gameboard{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 0.25fr 1fr;
+    grid-template-rows: 1fr;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
 }
 .iframe{
     display: none;
@@ -44,6 +41,35 @@ footer{
     left: 0;
     overflow: hidden;
 }
+.word{
+    background: black;
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+}
+.letter{
+    color: black;
+    margin: 10px;
+    height: 40px;
+}
+.robot{
+    background: black;
+    grid-row: 1;
+    grid-column: 3;
+}
+
+
+
+footer{
+    min-height: 300px;
+    background-color: grey;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
 h3{
     display: none;
     position: absolute;
@@ -54,35 +80,6 @@ h3{
     font-family: 'Roboto Mono', monospace;
     font-size: xx-large;
 }
-.gameboard{
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 0.25fr 1fr;
-    grid-template-rows: 1fr;
-    font-family: 'Roboto Mono', monospace;
-    position: relative;
-}
-
-.word{
-    background: black;
-    grid-row: 1;
-    grid-column: 1;
-    display: flex;
-    justify-content: center;
-    font-size: x-large;
-}
-.robot{
-    background: black;
-    grid-row: 1;
-    grid-column: 3;
-}
-
-.letter{
-    color: black;
-    margin: 10px;
-    height: 40px;
-}
-
 .row{
     display: flex;
 }
@@ -95,8 +92,7 @@ h3{
 .key{
     width: 50px;
     height: 50px;
-    border-style: solid;
-    border-color: black;
+    border: solid black;
     text-align: center;
     border-radius: 2px;
     margin: 3px;
@@ -112,7 +108,6 @@ h3{
 .keySpacer{
     width: 25px;
 }
-
 .keyboard{
     grid-row: 1 / span 3;
     grid-column: 1 / span 3;
@@ -143,11 +138,9 @@ h3{
     background-color: darkgray;
     margin: 0 auto;
 }
-
 .buttons button{
     border-radius: 50%;
-    border-style: solid;
-    border-color: black;
+    border: solid black;
     margin: 12px;
     color: white;
     background-color:#333;
@@ -192,8 +185,7 @@ input{
 .go{
     border-radius: 50%;
     height: 40px;
-    border-style: solid;
-    border-color: black;
+    border: solid black;
     margin: 3px;
     color: white;
     background-color:#333;
