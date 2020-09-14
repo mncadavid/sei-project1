@@ -27,13 +27,12 @@ img{
 }
 
 footer{
-    height: 300px;
+    min-height: 300px;
     background-color: grey;
     flex-shrink: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .iframe{
     display: none;
@@ -129,10 +128,6 @@ h3{
     margin: 0 auto;
     border-radius: 10px;
     font-size: larger;
-}
-.mode{
-    grid-row: 1 / span 3;
-    grid-column: 4 / span 1;
 }
 .circle{
     border-radius: 50%;
@@ -281,4 +276,9 @@ input{
 }
 .jump{
     display: none;
+}
+.wordSelection{
+    grid-row: 1 / span 3;
+    grid-column: 5 / span 2;
+    margin: 0 auto;
 }
