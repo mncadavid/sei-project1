@@ -53,154 +53,13 @@ img{
     color: black;
     margin: 10px;
     height: 40px;
+    border-bottom: solid limegreen;
+    margin: auto;
 }
 .robot{
     background: black;
     grid-row: 1;
     grid-column: 3;
-}
-
-
-
-footer{
-    min-height: 300px;
-    background-color: grey;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-}
-h3{
-    display: none;
-    position: absolute;
-    top: 32%;
-    left: 42%;
-    z-index: 15;
-    color: white;
-    font-family: 'Roboto Mono', monospace;
-    font-size: xx-large;
-}
-.row{
-    display: flex;
-}
-.emptyKey{
-    width: 40px;
-    height: 40px;
-    margin: 3px;
-    box-sizing: border-box;
-}
-.key{
-    width: 50px;
-    height: 50px;
-    border: solid black;
-    text-align: center;
-    border-radius: 2px;
-    margin: 3px;
-    color: white;
-    background-color:#333;
-    box-shadow: 0 0.2em 0 0.05em #222;
-    box-sizing: border-box;
-    border-bottom-color: #555;
-    font-family: 'Arial', monospace;
-    padding: 10px;
-    font-size:large;
-}
-.keySpacer{
-    width: 25px;
-}
-.keyboard{
-    grid-row: 1 / span 3;
-    grid-column: 1 / span 3;
-    margin: 0 auto;
-
-}
-.buttons{
-    grid-row: 2 / span 2;
-    grid-column: 5 / span 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    margin: 0 auto;
-    border-radius: 10px;
-    font-size: larger;
-}
-.circle{
-    border-radius: 50%;
-    background-color: blue;
-    height: 50px;
-    width: 50px;
-    margin: 0 auto;
-    z-index: 5;
-}
-.track{
-    height: 200px;
-    width: 20px;
-    background-color: darkgray;
-    margin: 0 auto;
-}
-.buttons button{
-    border-radius: 50%;
-    border: solid black;
-    margin: 12px;
-    color: white;
-    background-color:#333;
-    box-shadow: 0 0.2em 0 0.05em #222;
-    box-sizing: border-box;
-    border-bottom-color: #555;
-    font-family: 'Arial', monospace;
-    padding: 10px;
-    font-size: larger;
-}
-.noisyWords{
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
-}
-.robotWords{
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 1;
-}
-.computerWords{
-    grid-row: 2 / span 1;
-    grid-column: 1 / span 1;
-}
-.colorWords{
-    grid-row: 2 / span 1;
-    grid-column: 2 / span 1;
-}
-.input{
-    grid-row: 1 / span 1;
-    grid-column: 5/ span 2;
-    height: 100px;
-    align-items: center;
-    margin: 0 auto;
-}
-input{
-    margin: 25px auto;
-    height: 50px;
-    border-radius: 10px;
-    background-color: black;
-    color: limegreen;
-    font-family: 'Roboto Mono', monospace;
-}
-.go{
-    border-radius: 50%;
-    height: 40px;
-    border: solid black;
-    margin: 3px;
-    color: white;
-    background-color:#333;
-    box-shadow: 0 0.2em 0 0.05em #222;
-    box-sizing: border-box;
-    border-bottom-color: #555;
-    font-family: 'Arial', monospace;
-    padding: 10px;
-    font-size: larger;
-}
-.letter{
-    border-bottom: solid limegreen;
-    margin: auto;
-}
-.robot{
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -265,6 +124,128 @@ input{
     color: rgb(100,205,50);
     font-size: xx-large;
     text-align: right;
+}
+
+
+footer{
+    min-height: 300px;
+    background-color: grey;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+h3{
+    display: none;
+    position: absolute;
+    top: 32%;
+    left: 42%;
+    z-index: 15;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: xx-large;
+}
+.row{
+    display: flex;
+}
+.emptyKey{
+    width: 40px;
+    height: 40px;
+    margin: 3px;
+    box-sizing: border-box;
+}
+.key{
+    width: 50px;
+    height: 50px;
+    border: solid black;
+    text-align: center;
+    border-radius: 2px;
+    margin: 3px;
+    color: white;
+    background-color:#333;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    box-sizing: border-box;
+    border-bottom-color: #555;
+    font-family: 'Arial', monospace;
+    padding: 10px;
+    font-size:large;
+}
+.keySpacer{
+    width: 25px;
+}
+.keyboard{
+    grid-row: 1 / span 3;
+    grid-column: 1 / span 3;
+    margin: 0 auto;
+
+}
+.buttons{
+    grid-row: 2 / span 2;
+    grid-column: 5 / span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-size: larger;
+}
+.buttons button{
+    border-radius: 50%;
+    border: solid black;
+    margin: 12px;
+    color: white;
+    background-color:#333;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    box-sizing: border-box;
+    border-bottom-color: #555;
+    font-family: 'Arial', monospace;
+    padding: 10px;
+    font-size: larger;
+}
+.noisyWords{
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+}
+.robotWords{
+    grid-row: 1 / span 1;
+    grid-column: 2 / span 1;
+}
+.computerWords{
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
+}
+.colorWords{
+    grid-row: 2 / span 1;
+    grid-column: 2 / span 1;
+}
+.input{
+    grid-row: 1 / span 1;
+    grid-column: 5/ span 2;
+    height: 100px;
+    align-items: center;
+    margin: 0 auto;
+}
+input{
+    margin: 25px auto;
+    height: 50px;
+    border-radius: 10px;
+    background-color: black;
+    color: limegreen;
+    font-family: 'Roboto Mono', monospace;
+}
+.go{
+    border-radius: 50%;
+    height: 40px;
+    border: solid black;
+    margin: 3px;
+    color: white;
+    background-color:#333;
+    box-shadow: 0 0.2em 0 0.05em #222;
+    box-sizing: border-box;
+    border-bottom-color: #555;
+    font-family: 'Arial', monospace;
+    padding: 10px;
+    font-size: larger;
 }
 .jump{
     display: none;
