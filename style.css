@@ -188,19 +188,21 @@ input{
     color: limegreen;
     font-family: 'Roboto Mono', monospace;
 }
-.go{
+button{
     border-radius: 50%;
-    height: 40px;
-    border: solid black;
-    margin: 3px;
     color: white;
-    background-color:#333;
+    background-color: #333;
+    padding: 10px;
+    font-family: 'Arial', monospace;
+    font-size: larger;
+    border: solid black;
     box-shadow: 0 0.2em 0 0.05em #222;
     box-sizing: border-box;
     border-bottom-color: #555;
-    font-family: 'Arial', monospace;
-    padding: 10px;
-    font-size: larger;
+}
+.go{
+    height: 40px;
+    margin: 3px;
 }
 .buttons{
     grid-row: 2 / span 2;
@@ -209,21 +211,10 @@ input{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     margin: 0 auto;
-    border-radius: 10px;
     font-size: larger;
 }
 .buttons button{
-    border-radius: 50%;
-    border: solid black;
     margin: 12px;
-    color: white;
-    background-color:#333;
-    box-shadow: 0 0.2em 0 0.05em #222;
-    box-sizing: border-box;
-    border-bottom-color: #555;
-    font-family: 'Arial', monospace;
-    padding: 10px;
-    font-size: larger;
 }
 .noisyWords{
     grid-row: 1 / span 1;
