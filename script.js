@@ -1,3 +1,4 @@
+let myStorage = window.sessionStorage;
 const word = document.querySelector(".word");
 const keys = document.querySelectorAll(".key");
 const buttons = document.querySelectorAll(".button");
@@ -32,9 +33,10 @@ let incorrectLetters = 0;
 let loser = 0;
 let lettersGuessedArr = [];
 let gameStatus = 'not started';
-let time = 45;
+let time = 0;
 
 function populateWord(event){
+    time = 45;
     gameStatus = '';
     input.style.border = "initial";
     let clickedButton = event.target.innerText;
@@ -55,7 +57,7 @@ function populateWord(event){
         inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
         break;
     
-    case"GO!":
+    case "GO!":
         if(input.value !== ''){
             inputWord = (input.value).toUpperCase();
             input.value ='';
@@ -69,7 +71,7 @@ function populateWord(event){
     if(word.firstChild !== null){
         clearInterval(timerOn);
     }
-    timerFunction();
+    timerFunction(time);
     jump.pause();
     clearInterval(loser);
     h3.style.display = "none";
@@ -157,16 +159,20 @@ function buildRobot(){
     }
 }
 
-function timerFunction(){
-    time = 45;
-    timer.innerText = "45";
+function timerFunction(time){
+    timer.innerText = `${time}`;
+    if(gameStatus === ''){
     timerOn = setInterval(() => {
         time--;
-        timer.innerText = time;
-        if(time === 0){
+        timer.innerText = Math.max(time, 0);
+        if(time <= 0){
             gameOver();
         }
     }, 1000);
+}
+else if(gameStatus === 'lost'){
+    gameOver();
+}
 }
 
 
@@ -181,6 +187,75 @@ function gameOver(){
             h3.style.display = "none";
         }}, 500);
 }
+window.addEventListener("beforeunload", storeInfo);
+function storeInfo(){
+    myStorage.headStyle = head.style.display;
+    myStorage.torsoStyle = torso.style.display;
+    myStorage.rightArmStyle = rightArm.style.display;
+    myStorage.rightLegStyle = rightLeg.style.display;
+    myStorage.leftArmStyle = leftArm.style.display;
+    myStorage.leftLegStyle = leftLeg.style.display;
+    myStorage.h3 = h3.style.display;
+    myStorage.iframe = iframe.style.display;
+    myStorage.time = time;
+    myStorage.timerText = timer.innerText;
+    myStorage.inputWord = inputWord;
+    myStorage.lettersGuessed = lettersGuessed;
+    myStorage.incorrectLetters = incorrectLetters;
+    myStorage.loser = loser;
+    myStorage.lettersGuessedArr = lettersGuessedArr;
+    myStorage.gameStatus = gameStatus;
+    myStorage.timerOn = timerOn;
+}
+
+window.addEventListener('load', getInfo);
+
+function getInfo(){
+    if (myStorage.length != 0){
+    head.style.display = myStorage.getItem('headStyle');
+    torso.style.display = myStorage.getItem('torsoStyle');
+    rightArm.style.display = myStorage.getItem('rightArmStyle');
+    rightLeg.style.display = myStorage.getItem('rightLegStyle');
+    leftArm.style.display = myStorage.getItem('leftArmStyle');
+    leftLeg.style.display = myStorage.getItem('leftLegStyle');
+    h3.style.display = myStorage.getItem('h3');
+    iframe.style.display = myStorage.getItem('iframe');
+    timer.innerText = myStorage.getItem('timerText');
+    time = parseInt(timer.innerText);
+    inputWord = myStorage.getItem('inputWord');
+    lettersGuessed = parseInt(myStorage.getItem('lettersGuessed'));
+    wordLength = inputWord.length;
+    incorrectLetters = parseInt(myStorage.getItem('incorrectLetters'));
+    loser = myStorage.getItem('loser');
+    lettersGuessedArr = (myStorage.getItem('lettersGuessedArr')).split(',');
+    gameStatus = myStorage.getItem('gameStatus');
+    timerOn = myStorage.getItem('timerOn');
+    if (gameStatus != 'won'){
+        for(let i =0; i<inputWord.length; i++){
+            newLetter = document.createElement('div');
+            newLetter.classList.add("letter");
+            newLetter.classList.add((inputWord[i]));
+            newLetter.innerText = inputWord[i];
+            word.appendChild(newLetter);
+        }
+        for(let j=0; j<lettersGuessedArr.length; j++){
+            inputWord.split("").forEach(letter => {
+                if(lettersGuessedArr[j] === letter){
+                    const revealLetters = word.querySelectorAll(`.${letter}`);
+                    revealLetters.forEach(div => {
+                        div.style.color = "rgb(100,205,50)";
+                    })
+                }
+            })
+        }
+    }
+    timerFunction(time);
+    }
+}
+
+
+
+
 //https://jimpix.co.uk/words/word-generator.asp#results
 const noisyWords = ["chuckle",
     "slurp",
