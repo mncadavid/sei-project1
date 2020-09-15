@@ -25,7 +25,14 @@ The minimum viable product must:
 7. Display a winning/losing message
 
 Post-MVP:
-1. Add animations or transitions to letters and the robot
-2. Create a thematic layout/background (maybe some gears or blinking lights)
-3. Add sounds to the page
+1. Add animations or transitions to letters and the robot - Complete!
+2. Create a thematic layout/background (maybe some gears or blinking lights) - Complete!
+3. Add sounds to the page - Complete!
 4. Add up to 10 word categories
+
+Additional Features Added:
+1. Added GIF when player wins
+2. Added a countdown timer
+3. Stored gameplay across page refresh
+
+
