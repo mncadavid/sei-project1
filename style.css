@@ -18,7 +18,7 @@ header{
     display: flex;
     margin: 8px;
 }
-img{
+.robotImage{
     max-width: 50px;
     width: auto;
     margin: 5px;
@@ -75,12 +75,10 @@ img{
     position: relative;
     overflow: visible;
 }
-.head img{
+.glasses{
     display: block;
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-
+    width: 70%;
+    margin: auto;
 }
 .torso{
     grid-row: 2 / span 2;
