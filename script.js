@@ -16,6 +16,7 @@ const h3 = document.querySelector('h3');
 const body = document.querySelector('body');
 const jump = document.querySelector('.jump');
 const timer = document.querySelector('.timer');
+const robotVoice = document.querySelector('.robotVoice');
 
 
 //Adding event listeners to each keyboard key
@@ -201,6 +202,7 @@ else if(gameStatus === 'lost'){
 function gameOver(){
     gameStatus = 'lost';
     clearInterval(timerOn);
+    robotVoice.play();
     loser = setInterval(function(){
         if(h3.style.display === "none"){
         h3.style.display = "initial";
