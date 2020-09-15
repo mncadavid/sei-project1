@@ -50,32 +50,32 @@ function populateWord(event){
     input.style.border = "initial";
     let clickedButton = event.target.innerText;
     switch (clickedButton){
-    case "Noisy":
-        inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
-        break;
-    
-    case "Colors":
-        inputWord = (colorWords[Math.floor(Math.random()*colorWords.length)]).toUpperCase();
-        break;
-    
-    case "Computers":
-        inputWord = (computerWords[Math.floor(Math.random()*computerWords.length)]).toUpperCase();
-        break;
-    
-    case "Robots":
-        inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
-        break;
-    
-    case "GO!":
-        if(input.value !== '' && input.value.match(/^[A-Za-z]+$/)){
-            inputWord = (input.value).toUpperCase();
-            input.value ='';
-        }
-        else{
-            input.style.border = "solid red";
-            return;
-        }
-        break;
+        case "Noisy":
+            inputWord = (noisyWords[Math.floor(Math.random()*noisyWords.length)]).toUpperCase();
+            break;
+        
+        case "Colors":
+            inputWord = (colorWords[Math.floor(Math.random()*colorWords.length)]).toUpperCase();
+            break;
+        
+        case "Computers":
+            inputWord = (computerWords[Math.floor(Math.random()*computerWords.length)]).toUpperCase();
+            break;
+        
+        case "Robots":
+            inputWord = (robotWords[Math.floor(Math.random()*robotWords.length)]).toUpperCase();
+            break;
+        
+        case "GO!":
+            if(input.value !== '' && input.value.match(/^[A-Za-z]+$/)){
+                inputWord = (input.value).toUpperCase();
+                input.value ='';
+            }
+            else{
+                input.style.border = "solid red";
+                return;
+            }
+            break;
     }
     if(word.firstChild !== null){
         clearInterval(timerOn);
@@ -184,17 +184,17 @@ function buildRobot(){
 function timerFunction(time){
     timer.innerText = `${time}`;
     if(gameStatus === ''){
-    timerOn = setInterval(() => {
-        time--;
-        timer.innerText = Math.max(time, 0);
-        if(time <= 0){
-            gameOver();
-        }
-    }, 1000);
-}
-else if(gameStatus === 'lost'){
-    gameOver();
-}
+        timerOn = setInterval(() => {
+            time--;
+            timer.innerText = Math.max(time, 0);
+            if(time <= 0){
+                gameOver();
+            }
+        }, 1000);
+    }
+    else if(gameStatus === 'lost'){
+        gameOver();
+    }
 }
 
 //Function that stops the timer and displays Game Over
@@ -205,11 +205,12 @@ function gameOver(){
     robotVoice.play();
     loser = setInterval(function(){
         if(h3.style.display === "none"){
-        h3.style.display = "initial";
+            h3.style.display = "initial";
         }
         else {
             h3.style.display = "none";
-        }}, 500);
+        }
+    }, 500);
 }
 
 
@@ -247,44 +248,44 @@ window.addEventListener('load', getInfo);
 ///Function for getting the stored information and repopulating the screen
 function getInfo(){
     if (myStorage.length != 0){
-    head.style.display = myStorage.getItem('headStyle');
-    torso.style.display = myStorage.getItem('torsoStyle');
-    rightArm.style.display = myStorage.getItem('rightArmStyle');
-    rightLeg.style.display = myStorage.getItem('rightLegStyle');
-    leftArm.style.display = myStorage.getItem('leftArmStyle');
-    leftLeg.style.display = myStorage.getItem('leftLegStyle');
-    h3.style.display = myStorage.getItem('h3');
-    iframe.style.display = myStorage.getItem('iframe');
-    timer.innerText = myStorage.getItem('timerText');
-    time = parseInt(timer.innerText);
-    inputWord = myStorage.getItem('inputWord');
-    lettersGuessed = parseInt(myStorage.getItem('lettersGuessed'));
-    wordLength = inputWord.length;
-    incorrectLetters = parseInt(myStorage.getItem('incorrectLetters'));
-    loser = myStorage.getItem('loser');
-    lettersGuessedArr = (myStorage.getItem('lettersGuessedArr')).split(',');
-    gameStatus = myStorage.getItem('gameStatus');
-    timerOn = myStorage.getItem('timerOn');
-    if (gameStatus != 'won'){
-        for(let i =0; i<inputWord.length; i++){
-            newLetter = document.createElement('div');
-            newLetter.classList.add("letter");
-            newLetter.classList.add((inputWord[i]));
-            newLetter.innerText = inputWord[i];
-            word.appendChild(newLetter);
+        head.style.display = myStorage.getItem('headStyle');
+        torso.style.display = myStorage.getItem('torsoStyle');
+        rightArm.style.display = myStorage.getItem('rightArmStyle');
+        rightLeg.style.display = myStorage.getItem('rightLegStyle');
+        leftArm.style.display = myStorage.getItem('leftArmStyle');
+        leftLeg.style.display = myStorage.getItem('leftLegStyle');
+        h3.style.display = myStorage.getItem('h3');
+        iframe.style.display = myStorage.getItem('iframe');
+        timer.innerText = myStorage.getItem('timerText');
+        time = parseInt(timer.innerText);
+        inputWord = myStorage.getItem('inputWord');
+        lettersGuessed = parseInt(myStorage.getItem('lettersGuessed'));
+        wordLength = inputWord.length;
+        incorrectLetters = parseInt(myStorage.getItem('incorrectLetters'));
+        loser = myStorage.getItem('loser');
+        lettersGuessedArr = (myStorage.getItem('lettersGuessedArr')).split(',');
+        gameStatus = myStorage.getItem('gameStatus');
+        timerOn = myStorage.getItem('timerOn');
+        if (gameStatus != 'won'){
+            for(let i =0; i<inputWord.length; i++){
+                newLetter = document.createElement('div');
+                newLetter.classList.add("letter");
+                newLetter.classList.add((inputWord[i]));
+                newLetter.innerText = inputWord[i];
+                word.appendChild(newLetter);
+            }
+            for(let j=0; j<lettersGuessedArr.length; j++){
+                inputWord.split("").forEach(letter => {
+                    if(lettersGuessedArr[j] === letter){
+                        const revealLetters = word.querySelectorAll(`.${letter}`);
+                        revealLetters.forEach(div => {
+                            div.style.color = "rgb(100,205,50)";
+                        })
+                    }
+                })
+            }
         }
-        for(let j=0; j<lettersGuessedArr.length; j++){
-            inputWord.split("").forEach(letter => {
-                if(lettersGuessedArr[j] === letter){
-                    const revealLetters = word.querySelectorAll(`.${letter}`);
-                    revealLetters.forEach(div => {
-                        div.style.color = "rgb(100,205,50)";
-                    })
-                }
-            })
-        }
-    }
-    timerFunction(time);
+        timerFunction(time);
     }
 }
 
@@ -343,148 +344,148 @@ const noisyWords = ["chuckle",
     'kerching',
     'cluck'];
 
-    const robotWords = [
-        'robot',
-        'gear',
-        'cyborg',
-        'automation',
-        'android',
-        'machine',
-        'electromechanics',
-        'cyber',
-        'gadget',
-        'bionic',
-        'actuator',
-        'arduino',
-        'automation',
-        'drive',
-        'haptic',
-        'hydraulics',
-        'kinematics',
-        'manipulator',
-        'terminator',
-        'pneumatic',
-        'prosthetic',
-        'servo',
-        'motor',
-        'optimus',
-        'ultron',
-        'walle',
-        'assembly',
-        'base',
-        'cartesian',
-        'loop',
-        'command',
-        'control',
-        'coordinate',
-        'processor',
-        'encoder',
-        'feedback',
-        'force',
-        'gripper',
-        'home',
-        'sensor',
-        'intelligence',
-        'instruction',
-        'joint',
-        'laser',
-        'path',
-        'pinch',
-        'pitch',
-        'remote',
-        'vision',
-        'wrist'
-    ];
+const robotWords = [
+    'robot',
+    'gear',
+    'cyborg',
+    'automation',
+    'android',
+    'machine',
+    'electromechanics',
+    'cyber',
+    'gadget',
+    'bionic',
+    'actuator',
+    'arduino',
+    'automation',
+    'drive',
+    'haptic',
+    'hydraulics',
+    'kinematics',
+    'manipulator',
+    'terminator',
+    'pneumatic',
+    'prosthetic',
+    'servo',
+    'motor',
+    'optimus',
+    'ultron',
+    'walle',
+    'assembly',
+    'base',
+    'cartesian',
+    'loop',
+    'command',
+    'control',
+    'coordinate',
+    'processor',
+    'encoder',
+    'feedback',
+    'force',
+    'gripper',
+    'home',
+    'sensor',
+    'intelligence',
+    'instruction',
+    'joint',
+    'laser',
+    'path',
+    'pinch',
+    'pitch',
+    'remote',
+    'vision',
+    'wrist'
+];
 
-    const computerWords = [
-        'monitor',
-        'mouse',
-        'processor',
-        'memory',
-        'keyboard',
-        'RAM',
-        'ROM',
-        'webcam',
-        'screen',
-        'bandwidth',
-        'algorithm',
-        'captcha',
-        'cookie',
-        'broadband',
-        'cybercrime',
-        'database',
-        'domain',
-        'encryption',
-        'firmware',
-        'firewall',
-        'gigabyte',
-        'hyperlink',
-        'interface',
-        'kernel',
-        'login',
-        'malware',
-        'node',
-        'offline',
-        'printer',
-        'phish',
-        'program',
-        'protocol',
-        'queue',
-        'reboot',
-        'resolution',
-        'root',
-        'shell',
-        'security',
-        'spam',
-        'scroll',
-        'server',
-        'software',
-        'storage',
-        'terminal',
-        'terabyte',
-        'version',
-        'window',
-        'upload',
-        'zipped',
-        'widget'
-    ];
+const computerWords = [
+    'monitor',
+    'mouse',
+    'processor',
+    'memory',
+    'keyboard',
+    'RAM',
+    'ROM',
+    'webcam',
+    'screen',
+    'bandwidth',
+    'algorithm',
+    'captcha',
+    'cookie',
+    'broadband',
+    'cybercrime',
+    'database',
+    'domain',
+    'encryption',
+    'firmware',
+    'firewall',
+    'gigabyte',
+    'hyperlink',
+    'interface',
+    'kernel',
+    'login',
+    'malware',
+    'node',
+    'offline',
+    'printer',
+    'phish',
+    'program',
+    'protocol',
+    'queue',
+    'reboot',
+    'resolution',
+    'root',
+    'shell',
+    'security',
+    'spam',
+    'scroll',
+    'server',
+    'software',
+    'storage',
+    'terminal',
+    'terabyte',
+    'version',
+    'window',
+    'upload',
+    'zipped',
+    'widget'
+];
 
-    const colorWords = [
-        'grey',
-        'blue',
-        'purple',
-        'crimson',
-        'white',
-        'green',
-        'coral',
-        'teal',
-        'turquoise',
-        'magenta',
-        'salmon',
-        'ivory',
-        'lavender',
-        'orchid',
-        'silver',
-        'indigo',
-        'fuchsia',
-        'goldenrod',
-        'violet',
-        'amethyst',
-        'plum',
-        'orange',
-        'yellow',
-        'black',
-        'gold',
-        'aquamarine',
-        'maroon',
-        'beige',
-        'blush',
-        'chartreuse',
-        'khaki',
-        'cyan',
-        'rose',
-        'honeydew',
-        'brown',
-        'sienna',
-        'olive'
-    ];
+const colorWords = [
+    'grey',
+    'blue',
+    'purple',
+    'crimson',
+    'white',
+    'green',
+    'coral',
+    'teal',
+    'turquoise',
+    'magenta',
+    'salmon',
+    'ivory',
+    'lavender',
+    'orchid',
+    'silver',
+    'indigo',
+    'fuchsia',
+    'goldenrod',
+    'violet',
+    'amethyst',
+    'plum',
+    'orange',
+    'yellow',
+    'black',
+    'gold',
+    'aquamarine',
+    'maroon',
+    'beige',
+    'blush',
+    'chartreuse',
+    'khaki',
+    'cyan',
+    'rose',
+    'honeydew',
+    'brown',
+    'sienna',
+    'olive'
+];

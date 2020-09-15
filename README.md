@@ -11,7 +11,6 @@ Wireframe:
 
 https://wireframe.cc/0LvKcI
 
-<!-- ![](https://i.imgur.com/KeHI5PA.jpg) -->
 ![](https://i.imgur.com/IRpf1VE.jpg)
 
 MVP:
