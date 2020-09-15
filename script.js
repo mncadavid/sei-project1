@@ -1,3 +1,4 @@
+//Initialization of DOM variables
 let myStorage = window.sessionStorage;
 const word = document.querySelector(".word");
 const keys = document.querySelectorAll(".key");
@@ -16,16 +17,20 @@ const body = document.querySelector('body');
 const jump = document.querySelector('.jump');
 const timer = document.querySelector('.timer');
 
+
+//Adding event listeners to each keyboard key
 keys.forEach(key => {
     key.addEventListener("click", checkLetter);
 })
 
+//Adding event listeners to each word generating button
 buttons.forEach(button => {
     button.addEventListener("click", populateWord);
 })
-
 go.addEventListener("click", populateWord);
 
+
+//Intialization of global variables
 let inputWord = "";
 let lettersGuessed = 0;
 let wordLength = 0;
@@ -35,6 +40,9 @@ let lettersGuessedArr = [];
 let gameStatus = 'not started';
 let time = 0;
 
+//Function for getting the word and populating the gamespace
+//with blanks for each letter. Also restarts timer and erases
+//any robot parts on the screen.
 function populateWord(event){
     time = 45;
     gameStatus = '';
@@ -99,6 +107,10 @@ function populateWord(event){
     wordLength = inputWord.length;
 }
 
+//Function for checking if the letter clicked on the keyboard is in the word.
+//If it is in the word the letter appears.  If it is not, the buildRobot
+//function is called.  If the letter has already been checked, the function
+//makes it so it is not checked again.
 function checkLetter(event){
     if(gameStatus === ''){
         let match = false;
@@ -124,6 +136,9 @@ function checkLetter(event){
     }
 }
 
+
+//Function for checking if the user has won the game by guessing all
+//of the correct letters
 function checkForWinner(){
     if(lettersGuessed >= wordLength){
          iframe.style.display = "initial";
@@ -136,6 +151,9 @@ function checkForWinner(){
     }
 }
 
+//Function for building the robot when a user has selected an incorrect
+//letter.  When the user has selected 6 incorrect letters, the gameOver
+//function is called.
 function buildRobot(){
     switch (incorrectLetters){
         case 1:
@@ -159,6 +177,9 @@ function buildRobot(){
     }
 }
 
+//Function for keeping track of game time and counting down.
+//If times runs out and the user has not won, the gameOver
+//function is called.
 function timerFunction(time){
     timer.innerText = `${time}`;
     if(gameStatus === ''){
@@ -175,7 +196,8 @@ else if(gameStatus === 'lost'){
 }
 }
 
-
+//Function that stops the timer and displays Game Over
+//when a user has lost.
 function gameOver(){
     gameStatus = 'lost';
     clearInterval(timerOn);
@@ -188,8 +210,14 @@ function gameOver(){
         }}, 500);
 }
 
+
+//////////Storage Code/////////////
+//Adds event listener to Store information before the page is
+//unloaded upon refresh
 window.addEventListener("beforeunload", storeInfo);
 
+///Function that grabs any information we need to save from the
+//window before we refresh.
 function storeInfo(){
     myStorage.headStyle = head.style.display;
     myStorage.torsoStyle = torso.style.display;
@@ -210,8 +238,11 @@ function storeInfo(){
     myStorage.timerOn = timerOn;
 }
 
+//Adds event listener to get the information we have stored and
+//repopulate the screen as it was before we refreshed
 window.addEventListener('load', getInfo);
 
+///Function for getting the stored information and repopulating the screen
 function getInfo(){
     if (myStorage.length != 0){
     head.style.display = myStorage.getItem('headStyle');
@@ -256,7 +287,7 @@ function getInfo(){
 }
 
 
-
+//Arrays of words for each of the four categories
 
 //https://jimpix.co.uk/words/word-generator.asp#results
 const noisyWords = ["chuckle",

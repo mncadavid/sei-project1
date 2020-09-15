@@ -15,7 +15,6 @@ header{
 .logo{
     border: solid white;
     width: 200px;
-    
     display: flex;
     margin: 8px;
 }
