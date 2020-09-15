@@ -67,7 +67,7 @@ function populateWord(event){
         break;
     
     case "GO!":
-        if(input.value !== ''){
+        if(input.value !== '' && input.value.match(/^[A-Za-z]+$/)){
             inputWord = (input.value).toUpperCase();
             input.value ='';
         }
