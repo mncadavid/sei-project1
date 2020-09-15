@@ -55,6 +55,7 @@ header{
     height: 40px;
     border-bottom: solid limegreen;
     margin: auto;
+    transition: color 1s;
 }
 .robot{
     background: black;
