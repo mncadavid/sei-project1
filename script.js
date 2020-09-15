@@ -31,10 +31,11 @@ let wordLength = 0;
 let incorrectLetters = 0;
 let loser = 0;
 let lettersGuessedArr = [];
-let gameStatus = '';
+let gameStatus = 'not started';
 let time = 45;
 
 function populateWord(event){
+    gameStatus = '';
     input.style.border = "initial";
     let clickedButton = event.target.innerText;
     switch (clickedButton){
