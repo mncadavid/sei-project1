@@ -26,6 +26,6 @@ The minimum viable product must:
 
 Post-MVP:
 1. Add animations or transitions to letters and the robot
-2. Create a thematic layout/background (maybe some gears, or blinking lights)
+2. Create a thematic layout/background (maybe some gears or blinking lights)
 3. Add sounds to the page
 4. Add up to 10 word categories

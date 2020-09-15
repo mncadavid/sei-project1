@@ -187,7 +187,9 @@ function gameOver(){
             h3.style.display = "none";
         }}, 500);
 }
+
 window.addEventListener("beforeunload", storeInfo);
+
 function storeInfo(){
     myStorage.headStyle = head.style.display;
     myStorage.torsoStyle = torso.style.display;
