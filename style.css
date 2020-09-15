@@ -174,6 +174,10 @@ footer{
     grid-row: 1 / span 3;
     grid-column: 5 / span 2;
     margin: 0 auto;
+    color: white;
+    font-family: 'Arial', monospace;
+    text-align: center;
+    margin-top: 10px;
 }
 .input{
     grid-row: 1 / span 1;
